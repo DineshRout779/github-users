@@ -116,7 +116,9 @@ const showUser = (user) => {
   githubURL.innerHTML = '';
   const url = document.createElement('a');
   url.href = user.html_url;
-  url.innerHTML = user.html_url;
+  url.target = '_blank';
+  url.innerHTML =
+    '<i class="fa fa-link" aria-hidden="true"></i> ' + user.html_url;
   githubURL.appendChild(url);
 
   // console.log(githubURL);
