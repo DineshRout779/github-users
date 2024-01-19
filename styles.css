@@ -1,6 +1,9 @@
 :root {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 *,
 *::after,
@@ -8,11 +11,11 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-  font-family: 'Inter', sans-serif;
 }
 
 body {
   line-height: 1.6;
+  font-family: 'Inter', sans-serif;
 }
 
 .container {
@@ -102,6 +105,15 @@ input {
   font-weight: 500;
 }
 
+@media screen and (max-width: 560px) {
+  .user-section {
+    flex-direction: column;
+  }
+  .user-desc {
+    padding: 0;
+  }
+}
+
 /* repo section */
 
 .repo-section {
@@ -111,10 +123,20 @@ input {
   grid-gap: 2em;
 }
 
+@media screen and (max-width: 560px) {
+  .repo-section {
+    grid-template-columns: 1fr;
+  }
+}
+
 .repo {
   padding: 1em;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.repo:hover {
+  background-color: #fcfcfc;
 }
 
 .repo a {
@@ -168,4 +190,33 @@ input {
 
 .loading img {
   width: 360px;
+}
+
+/* pagination */
+
+.pagination {
+  display: none;
+  margin-bottom: 1em;
+}
+
+.pagination-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  gap: 4px;
+}
+
+.pagination-item {
+  background-color: #ece7e7;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.pagination-item.active,
+.pagination-item:hover {
+  color: white;
+  background-color: #6969e7;
 }
